@@ -1,17 +1,26 @@
 function addTask() {
-    const input = document.getElementById('taskInput');
-    const taskText = input.value.trim();
-    if (taskText === '') return;
-  
-    const li = document.createElement('li');
-    li.textContent = taskText;
-  
-    const btn = document.createElement('button');
-    btn.textContent = 'X';
-    btn.onclick = () => li.remove();
-  
-    li.appendChild(btn);
-    document.getElementById('taskList').appendChild(li);
-    input.value = '';
-  }
-  
+    const taskInput = document.getElementById('taskInput');
+    const newTaskList = document.getElementById('newTaskList'); // Reference the correct list
+
+    if (taskInput.value.trim() !== '') {
+        const newTask = document.createElement('li');
+        newTask.textContent = taskInput.value;
+
+        // Create the "X" button
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'X';
+        deleteButton.style.marginLeft = '10px'; // Add spacing between the task and the button
+        deleteButton.onclick = function () {
+            newTaskList.removeChild(newTask); // Remove the task when "X" is clicked
+        };
+
+        // Append the "X" button to the task
+        newTask.appendChild(deleteButton);
+
+        // Append the task to the task list
+        newTaskList.appendChild(newTask);
+
+        // Clear the input field
+        taskInput.value = '';
+    }
+}

@@ -1,49 +1,64 @@
 body {
     font-family: Arial, sans-serif;
     background: #c7bbbb;
+    flex-direction: column;
     display: flex;
     justify-content: center;
     padding-top: 30px;
   }
   
-  .container {
+.container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+ }
+
+.container {
+    margin: 20px auto;
     background: rgba(147, 54, 54, 0.994);
     padding: 20px;
     border-radius: 30px;
     color: white;
     width: 500px;
+    border: 2px solid #420707; 
+  }
+
+.new-tasks {
+    margin-top: 0.1px;
+    background: rgba(147, 54, 54, 0.994);
+    border: 2px solid #420707;
   }
   
-  input {
+input {
     width: 75%;
     padding: 8px;
     margin-bottom: 10px;
     border-radius: 20px;
   }
   
-  button {
+button {
     width: 20%;
     padding: 10px;
     background-color: #b47a7a;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
   }
-  
-  ul {
+
+ul {
     list-style-type: none;
     padding: 0;
   }
   
-  li {
+li {
     padding: 6px;
-    background: #330f0f;
+    background-color: #b47a7a;
     margin-bottom: 6px;
     display: flex;
     justify-content: space-between;
+    border-radius: 10px;
   }
   
-  li button {
+li button {
     background: rgb(104, 21, 21);
     color: rgb(255, 255, 255);
     border: none;
