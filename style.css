@@ -31,6 +31,17 @@ body {
     padding: 20px; 
   }
   
+  .finished-tasks {
+    background-color: #d4edda; /* Light green background */
+    border: 2px solid #155724; /* Dark green border */
+    border-radius: 30px; /* Rounded corners */
+    color: #155724; /* Dark green text color */
+    width: 500px; /* Same width as the New Tasks container */
+    height: 800px; /* Same height as the New Tasks container */
+    overflow-y: auto; /* Enable scrolling for overflow */
+    padding: 20px; /* Add padding inside the container */
+}
+
 input {
     width: 75%;
     padding: 8px;

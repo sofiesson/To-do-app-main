@@ -38,7 +38,7 @@ function addTask() {
 
         // Create the "X" button
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'delete';
+        deleteButton.textContent = 'Delete';
         deleteButton.style.color = 'white';
         deleteButton.style.cursor = 'pointer'; // Change cursor to pointer
         deleteButton.style.marginRight = '10px'; // Add margin to the right
