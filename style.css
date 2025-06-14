@@ -52,7 +52,7 @@ ul {
     padding: 0;
   }
   
-li {
+.new-tasks li {
     padding: 6px;
     background-color: #b47a7a;
     margin-bottom: 6px;
@@ -61,10 +61,14 @@ li {
     border-radius: 10px;
   }
   
-li button {
+.new-tasks li button {
+    width: 20%;
     background: rgb(104, 21, 21);
     color: rgb(255, 255, 255);
     border: none;
-    padding: 4px 8px;
+    padding: 4px;
   }
-  
+
+.new-tasks li input[type="checkbox"] {
+    margin-right: 10px; /* Add spacing between the checkbox and the task text */
+  }
