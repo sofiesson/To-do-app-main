@@ -32,9 +32,13 @@ function addTask() {
         leftWrapper.appendChild(checkbox);
         leftWrapper.appendChild(taskText);
 
+        const buttonWrapper = document.createElement('div');
+        buttonWrapper.style.display = 'flex'; // Use flexbox for alignment
+        buttonWrapper.style.gap = '1px'; 
+
         // Create the "X" button
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'X';
+        deleteButton.textContent = 'delete';
         deleteButton.style.color = 'white';
         deleteButton.style.cursor = 'pointer'; // Change cursor to pointer
         deleteButton.style.marginRight = '10px'; // Add margin to the right
@@ -42,9 +46,26 @@ function addTask() {
             newTaskList.removeChild(newTask); // Remove the task when "X" is clicked
         };
 
+        // Create the "Edit" button
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.style.color = 'white';
+        editButton.style.cursor = 'pointer'; // Change cursor to pointer
+        editButton.style.marginRight = '10px'; // Add margin to the right
+        editButton.onclick = function () {
+            // Allow editing the task text
+            const newText = prompt('Edit your task:', taskText.textContent);
+            if (newText !== null && newText.trim() !== '') {
+                taskText.textContent = newText; // Update the task text
+            }
+        };
+
+        buttonWrapper.appendChild(deleteButton);
+        buttonWrapper.appendChild(editButton);
+
         // Append the wrapper and "X" button to the task
         newTask.appendChild(leftWrapper);
-        newTask.appendChild(deleteButton);
+        newTask.appendChild(buttonWrapper);
 
         // Append the task to the task list
         newTaskList.appendChild(newTask);
