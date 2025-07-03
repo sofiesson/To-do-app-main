@@ -70,7 +70,82 @@ function addTask() {
         // Append the task to the task list
         newTaskList.appendChild(newTask);
 
+        // After creating your checkbox and newTask <li> element:
+        checkbox.addEventListener('change', function() {
+            const finishedTaskList = document.querySelector('.finished-tasks ul');
+            const newTaskList = document.querySelector('.new-tasks ul');
+            if (this.checked) {
+                finishedTaskList.appendChild(newTask);
+            } else {
+                newTaskList.appendChild(newTask);
+            }
+        });
+
         // Clear the input field
         taskInput.value = '';
     }
+}
+
+function renderTask(task, isFinished) {
+    const li = document.createElement('li');
+
+    // Checkbox
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = isFinished;
+    checkbox.addEventListener('change', function() {
+        if (isFinished) {
+            // Move back to new tasks
+            moveToNewTasks(task.id);
+        } else {
+            // Move to finished tasks
+            moveToFinishedTasks(task.id);
+        }
+    });
+    li.appendChild(checkbox);
+
+    // Task text
+    const span = document.createElement('span');
+    span.textContent = task.text;
+    li.appendChild(span);
+
+    // Edit button
+    const editBtn = document.createElement('button');
+    editBtn.textContent = 'Edit';
+    editBtn.addEventListener('click', function() {
+        editTask(task.id, isFinished);
+    });
+    li.appendChild(editBtn);
+
+    // Delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.addEventListener('click', function() {
+        deleteTask(task.id, isFinished);
+    });
+    li.appendChild(deleteBtn);
+
+    return li;
+}
+
+// When rendering, use:
+function renderTasks() {
+    // ...clear lists...
+    newTasks.forEach(task => {
+        document.getElementById('newTaskList').appendChild(renderTask(task, false));
+    });
+    finishedTasks.forEach(task => {
+        document.getElementById('finishedTaskList').appendChild(renderTask(task, true));
+    });
+}
+
+function deleteTask(taskId, isFinished) {
+    if (isFinished) {
+        // Remove from finishedTasks array
+        finishedTasks = finishedTasks.filter(task => task.id !== taskId);
+    } else {
+        // Remove from newTasks array
+        newTasks = newTasks.filter(task => task.id !== taskId);
+    }
+    renderTasks();
 }

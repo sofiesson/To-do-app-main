@@ -8,18 +8,19 @@
 </head>
 <body>
     <div class="container">
-        <h1> To-do List </h1> <!-- a large heading(lvl 1) -->
+        <h1> To-do App </h1> <!-- a large heading(lvl 1) -->
         <input type="text" id="taskInput" placeholder="Enter a new task" />
         <button onclick="addTask()"> Add Task </button> <!-- runs the addTask function from js file -->
-        <ul id="taskList"></ul>
-    </div>
-    <div class="container new-tasks">
-        <h1>Tasks</h1>
-        <ul id="newTaskList"></ul>
-    </div>
-    <div class="container finished-tasks">
-        <h1>Finished Tasks</h1>
-        <ul id="finishTaskList"></ul>
+        <div class="tasks-wrapper">
+            <div class="new-tasks">
+                <h1>New Tasks</h1>
+                <ul id="newTaskList"></ul>
+            </div>
+            <div class="finished-tasks">
+                <h1>Finished Tasks</h1>
+                <ul id="finishedTaskList"></ul>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script> <!-- links the js file -->
 </body>

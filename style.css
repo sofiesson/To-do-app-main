@@ -18,17 +18,24 @@ body {
     padding: 20px;
     border-radius: 30px;
     color: white;
-    width: 500px;
+    width: 900px; /* Increased width */
     border: 2px solid #420707; 
   }
 
+.new-tasks,
+.finished-tasks {
+    width: 400px; /* Increased width for both containers */
+    height: 800px;                     /* Same height as finished-tasks */
+    overflow-y: auto;                  /* Enable scrolling for overflow */
+    padding: 20px;                     /* Add padding inside the container */
+}
+
 .new-tasks {
+    background-color: #f8d7da;         /* Light red background */
+    border: 2px solid #721c24;         /* Dark red border */
+    border-radius: 30px;               /* Rounded corners */
+    color: #721c24;                    /* Dark red text color */
     margin-top: 0.1px;
-    background: rgba(147, 54, 54, 0.994);
-    border: 2px solid #420707;
-    height: 800px;
-    overflow-y: auto;
-    padding: 20px; 
   }
   
   .finished-tasks {
@@ -36,7 +43,6 @@ body {
     border: 2px solid #155724; /* Dark green border */
     border-radius: 30px; /* Rounded corners */
     color: #155724; /* Dark green text color */
-    width: 500px; /* Same width as the New Tasks container */
     height: 800px; /* Same height as the New Tasks container */
     overflow-y: auto; /* Enable scrolling for overflow */
     padding: 20px; /* Add padding inside the container */
@@ -98,3 +104,49 @@ ul {
     line-height: 20px;
     padding-left: 5px;
   }
+
+/* Add a flex wrapper for the task containers */
+.tasks-wrapper {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+/* Make finished tasks look like new tasks */
+.finished-tasks li {
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    gap: 10px;
+    background-color: #b47a7a;
+    margin-bottom: 6px;
+    justify-content: flex-start;
+    border-radius: 10px;
+    word-wrap: break-word;
+    position: relative;
+}
+
+.finished-tasks li button {
+    width: 100%;
+    background: rgb(104, 21, 21);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px;
+}
+
+.finished-tasks li input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.finished-tasks li span {
+    flex-grow: 1;
+    text-align: left;
+    word-wrap: break-word;
+    line-height: 20px;
+    padding-left: 5px;
+}
