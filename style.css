@@ -82,13 +82,40 @@ ul {
     position: relative;
   }
   
+.new-tasks li button,
+.finished-tasks li button {
+    width: auto !important;
+    min-width: 40px !important;
+    padding: 4px 10px !important;
+    margin-left: 5px !important;
+    border-radius: 8px !important;
+    font-size: 0.85em !important;
+    background: inherit;
+    color: inherit;
+    border: 1px solid #888;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
 .new-tasks li button {
-    width: 100%;
     background: rgb(104, 21, 21);
-    color: rgb(255, 255, 255);
+    color: #fff;
     border: none;
-    padding: 10px;
-  }
+}
+
+.finished-tasks li button {
+    background: #218838;
+    color: #fff;
+    border: none;
+}
+
+/* Optional: Add a hover effect */
+.new-tasks li button:hover {
+    background: #721c24;
+}
+.finished-tasks li button:hover {
+    background: #155724;
+}
 
 .new-tasks li input[type="checkbox"] {
     flex-shrink: 0;
@@ -114,13 +141,13 @@ ul {
     margin-top: 30px;
 }
 
-/* Make finished tasks look like new tasks */
+/* Make finished tasks look green */
 .finished-tasks li {
     display: flex;
     align-items: center;
     padding: 6px;
     gap: 10px;
-    background-color: #b47a7a;
+    background-color: #b6e6c5; /* Light green background */
     margin-bottom: 6px;
     justify-content: flex-start;
     border-radius: 10px;
@@ -130,8 +157,8 @@ ul {
 
 .finished-tasks li button {
     width: 100%;
-    background: rgb(104, 21, 21);
-    color: rgb(255, 255, 255);
+    background: #218838; /* Green button */
+    color: #fff;
     border: none;
     padding: 10px;
 }
@@ -141,6 +168,7 @@ ul {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+    accent-color: #218838; /* Green checkbox for modern browsers */
 }
 
 .finished-tasks li span {
@@ -149,4 +177,5 @@ ul {
     word-wrap: break-word;
     line-height: 20px;
     padding-left: 5px;
+    color: #155724; /* Dark green text */
 }
